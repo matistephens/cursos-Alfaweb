@@ -27,27 +27,23 @@ export const sessionModule = {
     },
     async signInWithEmailAndPassword({ commit }, credentials) {
       commit('SET_LOADING', true)
+
       try {
         await Firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
+        console.log('probando esta action')
       } catch (e) {
-        console.error('Non-Authorized', e)
+        console.error('La mansa embarraita', e)
       } finally {
         commit('SET_LOADING', false)
       }
     },
     async createUserWithEmailAndPassword({ commit }, newUser) {
       commit('SET_LOADING', true)
+
       try {
-        await Firebase.firestore().createUserWithEmailAndPassword(newUser.email, newUser.password)
-        // await Firebase.firestore().collection('users').doc(newUser.email).set({
-        //     name: '',
-        //     lastName: '',
-        //     birthDate: '',
-        //     phoneNumber: '',
-        //     role: 'user'
-        // });
-      } catch (e) {
-        console.error('There is a problem. Please try again.', e)
+        await Firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
+      } catch (error) {
+        console.error(error)
       } finally {
         commit('SET_LOADING', false)
       }
@@ -55,12 +51,12 @@ export const sessionModule = {
     async signOut({ commit }) {
       commit('SET_LOADING', true)
       try {
-        await Firebase.auth().signOut();
+        await Firebase.auth().signOut()
       } catch (e) {
-        console.error('There is an error in the sign out', e)
+        console.error('otra embarraita mas, me perd0n as¿', e)
       } finally {
         commit('SET_LOADING', false)
       }
-    },
+    }
   }
 }

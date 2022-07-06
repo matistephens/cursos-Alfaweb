@@ -1,0 +1,35 @@
+[
+  {
+    "title": "JavaScript Avanzado",
+    "id": "C001",
+    "img": "https://live.staticflickr.com/7306/16407404782_8b9c57eab3_w.jpg",
+    "price": "30000",
+    "duration": "2 meses",
+    "quota": "30",
+    "status": "no",
+    "registrationDate": "06-03-2021",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lorem sapien, fermentum vitae interdum non, molestie vel libero. Curabitur egestas purus et magna ultrices sagittis sed vitae mi."
+  },
+  {
+    "title": "CSS para principiantes",
+    "id": "C002",
+    "img": "https://armyyazilim.com/wp-content/uploads/2019/10/css.png",
+    "price": "10000",
+    "duration": "1 mes",
+    "quota": "35",
+    "status": "no",
+    "registrationDate": "05-03-2021",
+    "desc": "Suspendisse potenti. Nullam at ultricies dui. Donec dignissim elementum augue egestas ultrices. Mauris maximus orci et massa fermentum, et gravida diam aliquet. Vivamus feugiat ante libero, non euismod justo aliquam ut."
+  },
+  {
+    "title": "JavaScript básico de 0 a 100",
+    "id": "C003",
+    "img": "https://i0.wp.com/blog.canadianwebhosting.com/wp-content/uploads/2018/04/javascript-logo.png?ssl=1",
+    "price": "20000",
+    "duration": "2 meses",
+    "quota": "35",
+    "status": "sí",
+    "registrationDate": "01-03-2021",
+    "desc": "Duis pulvinar, velit ac porttitor feugiat, felis tellus luctus diam, a gravida mi nulla eget mi. Etiam vel fringilla risus, quis egestas tellus."
+  }
+]
