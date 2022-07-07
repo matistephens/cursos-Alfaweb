@@ -55,12 +55,12 @@ export const coursesModule = {
       commit('SET_LOADING', true)
       try {
         const courses = []
-        const coursesCollection = await Firebase.firestore().collection('courses').doc().get()
-
+        const coursesCollection = await Firebase.firestore().collection('courses').get()
+        console.log(coursesCollection)
         coursesCollection.forEach((doc) => {
           courses.push({ ...doc.data(), id: doc.id })
         })
-        commit('SET_LIST', cursos)
+        commit('SET_LIST', courses)
       } catch (e) {
         console.error('Error al traer Usuarios de Firebase', e)
       } finally {

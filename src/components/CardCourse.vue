@@ -57,14 +57,7 @@ export default {
   computed: {
     ...mapState('courses', ['list'])
   },
-  methods: {
-    ...mapActions('courses', {
-      getAllCourses: 'getAll'
-    })
-  },
-  created() {
-    this.getAllCourses()
-  }
+
 }
 </script>
 

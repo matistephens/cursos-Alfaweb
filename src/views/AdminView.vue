@@ -226,7 +226,6 @@ export default {
       else return 'grey'
     },
     initialize() {
-
       this.courses = this.list
     },
 

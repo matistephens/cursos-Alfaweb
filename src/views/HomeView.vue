@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import CardCourse from '@/components/CardCourse.vue'
 export default {
   name: 'Home',
@@ -15,6 +15,14 @@ export default {
   },
   mounted() {
     // this.$store.dispatch('session/subscribeToAuthStateChange')
+  },
+  methods: {
+    ...mapActions('courses', {
+      getAllCourses: 'getAll'
+    })
+  },
+  created() {
+    this.getAllCourses()
   },
   components: {
     CardCourse
