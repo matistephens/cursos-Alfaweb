@@ -51,18 +51,18 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const accessLevel = to.meta.accessLevel
-  const activeLogin = Store.getters['session/activeLogin']
+  const accessLevel = to.meta.accessLevel;
+  const activeLogin = Store.getters["session/activeLogin"];
 
-  if (accessLevel === 'public') {
-    next()
-  } else if (accessLevel === 'private') {
+  if (accessLevel === "public") {
+    next();
+  } else if (accessLevel === "private") {
     if (activeLogin) {
-      next()
+      next();
     } else {
-      next('/sign-in')
+      next("/login");
     }
   }
-})
+});
 
 export default router

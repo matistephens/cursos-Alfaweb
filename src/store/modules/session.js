@@ -30,9 +30,8 @@ export const sessionModule = {
 
       try {
         await Firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
-        console.log('probando esta action')
       } catch (e) {
-        console.error('La mansa embarraita', e)
+        console.error('Could not resolve', e)
       } finally {
         commit('SET_LOADING', false)
       }
@@ -53,7 +52,7 @@ export const sessionModule = {
       try {
         await Firebase.auth().signOut()
       } catch (e) {
-        console.error('otra embarraita mas, me perd0n as¿', e)
+        console.error('Could not resolve', e)
       } finally {
         commit('SET_LOADING', false)
       }

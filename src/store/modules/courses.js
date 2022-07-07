@@ -2,7 +2,7 @@ import Firebase from 'firebase'
 
 export const coursesModule = {
   namespaced: true,
-  data: {
+  state: {
     list: [],
     loading: false
   },
@@ -18,20 +18,51 @@ export const coursesModule = {
     totalCourses(state) {
       return state.list.length
     },
+    totalSeats(state) {
+      return state.list.reduce((accumulator, list) => {
+        accumulator += parseInt(list.seats)
+        return accumulator
+      }, 0)
+    },
+
+    totalSeatsUsed(state) {
+      return state.list.reduce((accumulator, list) => {
+        accumulator += parseInt(list.seatsUsed)
+        return accumulator
+      }, 0)
+    },
+
+    seatsAvailable(state, getters) {
+      return getters.totalSeats - getters.totalSeatsUsed
+    },
+
+    coursesEnded(state) {
+      return state.list.reduce((accumulator, list) => {
+        if (list.status === 'true') accumulator++
+        return accumulator
+      }, 0)
+    },
+
+    totalActiveCourses(state) {
+      return state.list.reduce((accumulator, list) => {
+        if (list.status === 'false') accumulator++
+        return accumulator
+      }, 0)
+    }
   },
   actions: {
     async getAll({ commit }) {
       commit('SET_LOADING', true)
       try {
-        const list = []
-        const listCollection = await Firebase.firestore().collection('courses').get()
+        const courses = []
+        const coursesCollection = await Firebase.firestore().collection('courses').doc().get()
 
-        listCollection.forEach((document) => {
-          list.push({ ...document.data() })
+        coursesCollection.forEach((doc) => {
+          courses.push({ ...doc.data(), id: doc.id })
         })
-        commit('SET_LIST', list)
+        commit('SET_LIST', cursos)
       } catch (e) {
-        console.error('Error al traer usuarios de Firebase', e)
+        console.error('Error al traer Usuarios de Firebase', e)
       } finally {
         commit('SET_LOADING', false)
       }

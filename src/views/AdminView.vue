@@ -115,23 +115,23 @@
     <div class="alerts-style mt-4">
       <v-alert dense outlined color="purple">
         <v-icon class="mr-4" color="purple">mdi-account-multiple</v-icon>
-        <span>Cantidad de alumnos permitidos: <strong>outlined</strong></span>
+        <span>Cantidad de alumnos permitidos: <strong>{{this.totalSeats}}</strong></span>
       </v-alert>
       <v-alert dense outlined color="blue">
         <v-icon class="mr-4" color="blue">mdi-account-check</v-icon>
-        <span>Cantidad de alumnos inscritos:<strong>outlined</strong></span>
+        <span>Cantidad de alumnos inscritos:<strong>{{this.totalSeatsUsed}}</strong></span>
       </v-alert>
       <v-alert dense outlined color="red">
         <v-icon class="mr-4" color="red">mdi-account-clock</v-icon>
-        <span>Cantidad de cupos restantes: <strong>outlined</strong></span>
+        <span>Cantidad de cupos restantes: <strong>{{this.seatsAvailable}}</strong></span>
       </v-alert>
       <v-alert dense outlined color="pink">
         <v-icon class="mr-4" color="pink">mdi-cancel</v-icon>
-        <span>Cantidad de cursos terminados: <strong>outlined</strong></span>
+        <span>Cantidad de cursos terminados: <strong>{{this.coursesEnded}}</strong></span>
       </v-alert>
       <v-alert dense outlined color="brown">
         <v-icon class="mr-4" color="brown">mdi-bell-ring</v-icon>
-        <span>Cantidad total de cursos activos: <strong>outlined</strong></span>
+        <span>Cantidad total de cursos activos: <strong>{{this.totalActiveCourses}}</strong></span>
       </v-alert>
       <v-alert dense outlined color="red">
         <v-icon class="mr-4" color="red">mdi-bell-ring</v-icon>
@@ -199,7 +199,7 @@ export default {
     addCoursesToState() {
       this.courses = this.list
     },
-    ...mapGetters('courses', ['totalCourses'])
+    ...mapGetters('courses', ['totalCourses', 'totalSeats', 'totalSeatsUsed', 'seatsAvailable', 'coursesEnded', 'totalActiveCourses'])
   },
 
   watch: {
@@ -212,9 +212,8 @@ export default {
   },
 
   created() {
-    this.initialize()
-    this.getAllCourses()
-    console.log(this.courses[0])
+    this.initialize();
+    this.getAllCourses();
     
   },
 
