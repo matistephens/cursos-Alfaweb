@@ -38,14 +38,14 @@ export const coursesModule = {
 
     coursesEnded(state) {
       return state.list.reduce((accumulator, list) => {
-        if (list.status === 'true') accumulator++
+        if (list.status === 'Si') accumulator++
         return accumulator
       }, 0)
     },
 
     totalActiveCourses(state) {
       return state.list.reduce((accumulator, list) => {
-        if (list.status === 'false') accumulator++
+        if (list.status === 'No') accumulator++
         return accumulator
       }, 0)
     }
@@ -56,7 +56,6 @@ export const coursesModule = {
       try {
         const courses = []
         const coursesCollection = await Firebase.firestore().collection('courses').get()
-        console.log(coursesCollection)
         coursesCollection.forEach((doc) => {
           courses.push({ ...doc.data(), id: doc.id })
         })

@@ -9,36 +9,36 @@
         </v-img>
 
         <v-card-text style="background-color: lightgrey">
-          <v-card-title>{{ course.title }}</v-card-title>
+          <v-card-title>{{ course }}</v-card-title>
           <div class="font-weight-bold ml-8 mb-2">Today</div>
 
           <v-timeline align-top dense>
-            <v-timeline-item :color="green" small>
+            <v-timeline-item color="primary" small>
               <div>
-                <div class="font-weight-normal"><strong>Costo:</strong> {{ course.price }}</div>
-                <div><strong>Duración:</strong>{{ course.duration }}</div>
+                <div class="font-weight-normal"><strong>Costo:</strong> </div>
+                <div><strong>Duración:</strong> </div>
               </div>
             </v-timeline-item>
-            <v-timeline-item :color="green" small>
+            <v-timeline-item color="green" small>
               <div>
-                <div class="font-weight-normal"><strong>Cupos:</strong> {{ course.seats }}</div>
-                <div><strong>Completado:</strong> {{ course.status }}</div>
+                <div class="font-weight-normal"><strong>Cupos:</strong> </div>
+                <div><strong>Completado:</strong> </div>
               </div>
             </v-timeline-item>
-            <v-timeline-item :color="green" small>
+            <v-timeline-item color="green" small>
               <div>
                 <div class="font-weight-normal">
                   <strong>Fecha de registro:</strong>
                 </div>
-                <div>{{ course.registrationDate }}</div>
+                <div> </div>
               </div>
             </v-timeline-item>
-            <v-timeline-item :color="green" small>
+            <v-timeline-item color="purple" small>
               <div>
                 <div class="font-weight-normal">
                   <strong>Descripción:</strong>
                 </div>
-                <div>{{ course.description }}</div>
+                <!-- <div> </div> -->
               </div>
             </v-timeline-item>
           </v-timeline>
